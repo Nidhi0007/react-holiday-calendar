@@ -3,9 +3,6 @@
 Welcome to the README file for the **React JS Developer Test**.
 
 
-To visualize the data stored in the database, you can utilize MongoDB Compass. Paste the provided connection link in MongoDB Compass to connect and inspect the data.
-
-
 ## To install dependencies of frontend
 To install dependencies, execute the following command:
 ```plaintext
