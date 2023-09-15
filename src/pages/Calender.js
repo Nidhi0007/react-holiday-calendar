@@ -32,7 +32,7 @@ function HolidayCalendar() {
       alert("Holiday Title Or Date Missing");
       return;
     }
- 
+
     setEvents([...events, newHoliday]);
     localStorage.setItem("events", JSON.stringify([...events, newHoliday]));
     setNewHoliday({
@@ -57,8 +57,8 @@ function HolidayCalendar() {
           let data = {
             title: item.name,
             description: item.description,
-            start: item.date.iso,
-            end: item.date.iso,
+            start: new Date(item.date.iso),
+            end: new Date(item.date.iso),
           };
           holidays.push(data);
         });
@@ -73,7 +73,12 @@ function HolidayCalendar() {
       getHolidayList();
       return;
     }
-    setEvents(holidays);
+    const formatHolidays = holidays.map((item) => {
+      item.start = new Date(item.start);
+      item.end = new Date(item.end);
+      return item;
+    });
+    setEvents(formatHolidays);
   }, []);
 
   const handleEventClick = (e) => {
@@ -129,7 +134,7 @@ function HolidayCalendar() {
         />
         <Button
           style={{ margin: "10px" }}
-          sx={{ height: '50px' }}
+          sx={{ height: "50px" }}
           variant="contained"
           size="medium"
           type="button"

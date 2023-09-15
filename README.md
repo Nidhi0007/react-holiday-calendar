@@ -25,5 +25,6 @@ A list of libraries used within the project:
 * [Material UI](https://mui.com/): Version 5.14.9
 * [react-big-calendar](https://www.npmjs.com/package/react-big-calendar): Version 1.8.2
 
+
 **Author:** Nidhi Bhat
 **Contact:** bhatnidhis999@gmail.com
