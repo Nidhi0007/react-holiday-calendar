@@ -22,6 +22,8 @@ function HolidayCalendar() {
     end: null,
   });
 
+
+  //  add holiday function
   const handleAddHoliday = () => {
     if (
       !newHoliday.title ||
@@ -43,9 +45,11 @@ function HolidayCalendar() {
     });
   };
 
+
+  // get holidays from api
   const getHolidayList = () => {
     fetch(
-      "https://calendarific.com/api/v2/holidays?&api_key=GffyiNwNKS6K0mWkGxODhlxkJhtJykJC&country=IN&year=2023'"
+      `https://calendarific.com/api/v2/holidays?&api_key=${process.env.REACT_APP_API_KEY}&country=IN&year=2023`
     )
       .then((res) => res.json())
       .then((json) => {
@@ -67,6 +71,8 @@ function HolidayCalendar() {
       });
   };
 
+
+  //  get holiday deom localstorage
   useEffect(() => {
     let holidays = JSON.parse(localStorage.getItem("events"));
     if (!holidays || !holidays.length) {
@@ -153,6 +159,7 @@ function HolidayCalendar() {
           onSelectEvent={handleEventClick}
         />
 
+{/* modal for popup */}
         <ModalPopup
           isShowing={isShowing}
           hide={toggle}
